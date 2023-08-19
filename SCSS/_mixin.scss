@@ -26,6 +26,7 @@
     border-radius: 50%;
     color: $color;
     background: $background;
+    cursor: pointer;
 }
 
 @mixin common-bar-props {
@@ -43,4 +44,18 @@
     background: $background;
     text-align: center;
     clip-path: polygon(0 0, 0 100%, 100% 100%, 90% 0);
+}
+
+
+// responsive
+@mixin mobile {
+    @media screen and (max-width: ($mobile)) {
+        @content;
+    }
+}
+
+@mixin tab {
+    @media screen and (max-width: ($tab)) {
+        @content;
+    }
 }

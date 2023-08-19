@@ -273,6 +273,11 @@ body {
     // border: 1px solid red;
     margin: 10px 100px;
 
+    @include mobile {
+        margin: 10px 80px;
+    }
+
+    //trending header
     .trending-header {
         @include display-with-justified (flex, space-between);
 
@@ -285,10 +290,21 @@ body {
         }
     }
 
+    //card container
     .card-container {
         // border: 1px solid red;
         margin: 20px 0;
         @include display-with-template-columns (grid, repeat(3, 1fr));
+
+        @include tab {
+            @include display-with-template-columns (grid, repeat(2, 1fr));
+        }
+
+        @include mobile {
+            @include display-with-template-columns (grid, repeat(1, 1fr));
+        }
+
+        ;
         gap: 20px;
 
         .card {
@@ -325,3 +341,14 @@ body {
         }
     }
 }
+
+
+
+
+
+// @media (max-width: 768px) {
+//     .card-container {
+//         // @include display-with-template-columns (grid, repeat(1, 1fr));
+//         display: block;
+//     }
+// }
