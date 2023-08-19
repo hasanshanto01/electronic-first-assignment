@@ -19,23 +19,29 @@ body {
     background: url("/Assets/img/banner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     height: 100vh;
+    // border: 1px solid red;
 
-    @include tab {
-        height: 80vh;
-    }
-
-    @include mobile {
-        height: 65vh;
-    }
-
-    clip-path: polygon(0 0, 0 95%, 100% 100%, 100% 0);
+    clip-path: polygon(0 0, 0 92%, 100% 100%, 100% 0);
     position: relative;
 
     //header top
     .header-top {
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
+
+        @include mobile {
+            .logo-container {
+                grid-column: 1 / span 3;
+            }
+
+            .top-menu-container {
+                grid-column: 1 / span 2;
+                // border: 1px solid red;
+            }
+        }
+
         margin: 0 40px;
         padding-top: 10px;
         // border: 1px solid red;
@@ -48,8 +54,13 @@ body {
             list-style: none;
             @include display-with-justified (flex, center);
 
+            @include mobile {
+                justify-content: left;
+            }
+
             li {
                 margin: 0 10px;
+                // border: 1px solid green;
             }
         }
 
@@ -69,7 +80,7 @@ body {
     // Navbar
     .navbar {
         @include common-bar-props;
-        // border: 1px solid red;
+        border: 1px solid red;
         border-radius: 25px;
         background: $clr-grey;
         @include display-with-aligned (flex, center);
@@ -210,7 +221,7 @@ body {
         display: none;
 
         &.search-active {
-            display: block;
+            display: flex;
         }
 
         input {
@@ -226,6 +237,7 @@ body {
 
         .search-close-btn {
             @include common-search-btn ($clr-white, rgba(131, 139, 159, 0.4));
+            margin-left: 3px;
         }
     }
 
@@ -234,13 +246,13 @@ body {
         // border: 1px solid red;
         margin: 100px 0 0 130px;
 
-        @include tab {
-            margin: 50px 0 0 80px;
-        }
+        // @include tab {
+        //     margin: 50px 0 0 80px;
+        // }
 
-        @include mobile {
-            margin: 30px 0 0 80px;
-        }
+        // @include mobile {
+        //     margin: 30px 0 0 80px;
+        // }
 
         .remainning-btn {
             padding: 3px;
@@ -276,15 +288,15 @@ body {
         right: 45%;
         bottom: 150px;
 
-        @include tab {
-            right: 42%;
-            bottom: 100px;
-        }
+        // @include tab {
+        //     right: 42%;
+        //     bottom: 100px;
+        // }
 
-        @include mobile {
-            right: 38%;
-            bottom: 50px;
-        }
+        // @include mobile {
+        //     right: 38%;
+        //     bottom: 50px;
+        // }
 
         box-shadow: 2px 3px $clr-grey;
 
@@ -369,14 +381,3 @@ body {
         }
     }
 }
-
-
-
-
-
-// @media (max-width: 768px) {
-//     .card-container {
-//         // @include display-with-template-columns (grid, repeat(1, 1fr));
-//         display: block;
-//     }
-// }
