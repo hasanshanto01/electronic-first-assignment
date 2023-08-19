@@ -183,6 +183,10 @@ body {
                 &.active {
                     color: $clr-white;
 
+                    .fa-chevron-down {
+                        rotate: 180deg;
+                    }
+
                     .dropdown-menu {
                         display: block;
                     }
