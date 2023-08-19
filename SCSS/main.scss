@@ -1,3 +1,277 @@
+@import 'var';
+@import 'mixin';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background: red;
+    background: $body-bg;
+    color: $clr-white;
+}
+
+
+// header section 
+.header-bg {
+    background: url("/Assets/img/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    clip-path: polygon(0 0, 0 95%, 100% 100%, 100% 0);
+    position: relative;
+}
+
+//header top
+.header-top {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin: 0 40px;
+    padding-top: 10px;
+    // border: 1px solid red;
+
+    .logo {
+        height: 65%;
+    }
+
+    .top-menu {
+        list-style: none;
+        @include display-with-justified (flex, center);
+
+        li {
+            margin: 0 10px;
+        }
+    }
+
+    .header-top-icon {
+        text-align: right;
+        font-size: 18px;
+
+        .fa-user {
+            margin-left: 20px;
+            color: #00A655;
+        }
+
+    }
+
+}
+
+// Navbar
+.navbar {
+    @include common-bar-props;
+    // border: 1px solid red;
+    border-radius: 25px;
+    background: $clr-grey;
+    @include display-with-aligned (flex, center);
+    position: relative;
+
+    &.search-active {
+        display: none;
+    }
+
+    .navbar-list {
+        width: 100%;
+        list-style: none;
+        // border: 1px solid green;
+        @include display-with-template-columns (grid, repeat(4, 1fr));
+
+        .navbar-item {
+            // border: 1px solid yellow;
+            padding: 5px;
+            font-size: 18px;
+            @include display-justified-and-aligned (flex, center, center);
+            cursor: pointer;
+
+            span {
+                margin: 0 6px;
+            }
+
+            .fa-chevron-down {
+                font-size: 10px;
+            }
+
+            // &:hover {
+            //     color: #4F5051
+            // }
+
+            .dropdown-menu {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 36rem;
+                // border: 1px solid yellow;
+                border-radius: 8px;
+                padding: 15px;
+                background: rgb(171, 172, 177);
+                display: none;
+                z-index: 1;
+
+                .bar {
+                    // border: 1px solid red;
+                    border-radius: 6px;
+                    padding: 5px 10px;
+                    @include display-justified-and-aligned (flex, space-between, center);
+                    background: rgba(131, 139, 159, 0.8);
+
+                    button {
+                        border: none;
+                        padding: 5px;
+                        background: none;
+                        color: $clr-white;
+                    }
+                }
+
+                .options {
+                    @include display-with-template-columns (grid, repeat(3, 1fr));
+                    margin: 10px 0;
+
+                    .option {
+                        // border: 1px solid green;
+                        border-radius: 20px;
+                        @include display-with-aligned (flex, center);
+                        padding: 5px;
+
+                        .option-img {
+                            width: 30px;
+                            height: 30px;
+                            // border: 1px solid white;
+                            border-radius: 50%;
+                            margin-right: 8px;
+                            background: $clr-white;
+                        }
+
+                        span {
+                            font-size: 18px;
+                        }
+
+                        &:hover {
+                            background: $clr-light-grey;
+                        }
+                    }
+                }
+
+                .prepaid-cards {
+                    @include display-with-template-columns (grid, repeat(3, 1fr));
+                    margin: 10px 0;
+
+                    .prepaid-card {
+                        // border: 1px solid green;
+                        border-radius: 5px;
+                        padding: 5px;
+                        @include display-justified-and-aligned (flex, center, center);
+                        flex-direction: column;
+
+                        img {
+                            width: 100px;
+                            height: 50px;
+                            // border: 1px solid yellow;
+                        }
+
+                        &:hover {
+                            background: $clr-light-grey;
+                        }
+                    }
+                }
+            }
+
+            &.active {
+                color: $clr-white;
+
+                .dropdown-menu {
+                    display: block;
+                }
+            }
+
+            &.inactive {
+                color: #4F5051;
+            }
+        }
+    }
+
+    .search-btn {
+        @include common-search-btn($clr-orange);
+
+        &:hover {
+            background: rgba(255, 85, 0, 0.8);
+        }
+    }
+}
+
+// Search bar
+.search-bar {
+    @include common-bar-props;
+    // border: 1px solid green;
+    display: none;
+
+    &.search-active {
+        display: block;
+    }
+
+    input {
+        width: 90%;
+        height: 100%;
+        border: none;
+        outline: none;
+        border-radius: 25px;
+        padding-left: 25px;
+        background: linear-gradient(to right, #ffe864, $clr-orange);
+        // color: white;
+    }
+
+    .search-close-btn {
+        @include common-search-btn (rgba(131, 139, 159, 0.4));
+    }
+}
+
+// Header content
+.header-content {
+    // border: 1px solid red;
+    margin: 100px 0 0 130px;
+
+    .remainning-btn {
+        padding: 3px;
+        border-radius: 5px;
+        color: $clr-white;
+        background: $clr-grey;
+    }
+
+    h2 {
+        margin: 10px 0;
+        letter-spacing: 3px;
+    }
+
+    .price {
+        @include display-with-aligned (flex, center);
+        gap: 15px;
+
+        .offer {
+            width: 50px;
+            height: 28px;
+            padding: 5px 0;
+            border-radius: 5px;
+            background: $clr-orange;
+            text-align: center;
+            clip-path: polygon(0 0, 0 100%, 100% 100%, 90% 0);
+        }
+    }
+}
+
+// Early access button
+.early-access-btn {
+    border: 1px solid $clr-grey;
+    border-radius: 3px;
+    padding: 10px;
+    color: $clr-white;
+    background: rgba(131, 139, 159, 0.4);
+    text-transform: uppercase;
+    position: absolute;
+    right: 50%;
+    bottom: 150px;
+    box-shadow: 2px 3px $clr-grey;
+
+    &:hover {
+        background: rgba(131, 139, 159, 1);
+    }
 }

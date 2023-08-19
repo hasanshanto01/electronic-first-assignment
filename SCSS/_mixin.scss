@@ -1,0 +1,36 @@
+@mixin display-justified-and-aligned ($display, $justified, $aligned) {
+    display: $display;
+    justify-content: $justified;
+    align-items: $aligned;
+}
+
+@mixin display-with-justified ($display, $justified) {
+    display: $display;
+    justify-content: $justified;
+}
+
+@mixin display-with-aligned ($display, $aligned) {
+    display: $display;
+    align-items: $aligned;
+}
+
+@mixin display-with-template-columns ($display, $template-columns) {
+    display: $display;
+    grid-template-columns: $template-columns;
+}
+
+@mixin common-search-btn ($background) {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background: $background;
+}
+
+@mixin common-bar-props {
+    width: 36rem;
+    height: 3rem;
+    margin: 0 auto;
+    margin-top: -30px;
+}
