@@ -20,6 +20,15 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+
+    @include tab {
+        height: 80vh;
+    }
+
+    @include mobile {
+        height: 65vh;
+    }
+
     clip-path: polygon(0 0, 0 95%, 100% 100%, 100% 0);
     position: relative;
 
@@ -225,6 +234,14 @@ body {
         // border: 1px solid red;
         margin: 100px 0 0 130px;
 
+        @include tab {
+            margin: 50px 0 0 80px;
+        }
+
+        @include mobile {
+            margin: 30px 0 0 80px;
+        }
+
         .remainning-btn {
             padding: 3px;
             border-radius: 5px;
@@ -256,8 +273,19 @@ body {
         background: rgba(131, 139, 159, 0.4);
         text-transform: uppercase;
         position: absolute;
-        right: 50%;
+        right: 45%;
         bottom: 150px;
+
+        @include tab {
+            right: 42%;
+            bottom: 100px;
+        }
+
+        @include mobile {
+            right: 38%;
+            bottom: 50px;
+        }
+
         box-shadow: 2px 3px $clr-grey;
 
         &:hover {
