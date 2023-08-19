@@ -19,12 +19,12 @@
     grid-template-columns: $template-columns;
 }
 
-@mixin common-search-btn ($background) {
+@mixin common-search-btn ($color, $background) {
     width: 3rem;
     height: 3rem;
     border: none;
     border-radius: 50%;
-    color: white;
+    color: $color;
     background: $background;
 }
 
@@ -33,4 +33,14 @@
     height: 3rem;
     margin: 0 auto;
     margin-top: -30px;
+}
+
+@mixin discount-offer-common-props ($background) {
+    width: 50px;
+    height: 28px;
+    padding: 5px 0;
+    border-radius: 5px;
+    background: $background;
+    text-align: center;
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 90% 0);
 }
